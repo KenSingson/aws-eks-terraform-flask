@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flaskapp-aws-restapp-service-nlb
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: nlb
+spec:
+  type: LoadBalancer
+  selector:
+    app: flaskapp-aws-restapp
+  ports:
+    - port: 80
+      targetPort: 5000

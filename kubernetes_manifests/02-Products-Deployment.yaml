@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskapp-aws-microservice
+  labels:
+    app: flaskapp-aws-restapp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flaskapp-aws-restapp
+  template:
+    metadata:
+      labels:
+        app: flaskapp-aws-restapp
+    spec:
+      containers:
+      - name: flaskapp-aws-restapp
+        image: kensingson/flaskapp-aws:1.0.0
+        ports:
+        - containerPort: 5000
+        env:
+          - name: DB_HOSTNAME
+            value: "postgresql"
+          - name: DB_PORT
+            value: "5432"
+          - name: DB_NAME
+            value: "products"
+          - name: DB_USERNAME
+            value: "postgres"
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgresql-db-password
+                key: db-password
