@@ -65,7 +65,7 @@ terraform apply -auto-approve
 make validate
 make create
 ```
-11. Verify if AWS EKS Cluster is successfully created, if you have don't have kubectl installed then follow the instructions on the [here](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html).
+11. Verify if AWS EKS Cluster is successfully created, if you have don't have kubectl installed then follow the instructions [here](https://docs.aws.amazon.com/eks/latest/userguide/install-kubectl.html).
 12. Navigate to AWS Console -> EKS
 
 ![EKS_CREATED](https://github.com/KenSingson/photo_dumps/blob/main/aws-eks-terraform-flask/blob/eks-cluster-created.jpg)
